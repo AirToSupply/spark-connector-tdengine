@@ -1,2 +1,2 @@
-# spark-connector-tdengine
-Spark Connector TDengineData Source
+# Spark Connector TDengineData Source
+
