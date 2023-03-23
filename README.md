@@ -41,12 +41,10 @@ SQL Stream may be also transferred into TDengine using:
 ## Configuration options
 
 
-| Parameter Name | Description | Default Value |
-| -------------- | ----------- | ------------- |
-|                |             |               |
-|                |             |               |
-|                |             |               |
-|                |             |               |
-|                |             |               |
-|                |             |               |
-|                |             |               |
+| Parameter Name           | Description                                                                                                                                                                                                                                                                    | Default Value  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
+| subscribe                | 【Require】The topic subscribed by the consumer.<br/>TDengine provides data subscription and consumption interfaces similar to Message Queuing products. For specific creation methods, please refer to [TDengine data subscription.](https://docs.taosdata.com/taos-sql/tmq/) | None           |
+| bootstrap.servers        | 【Require】Subscription server connection address.                                                                                                                                                                                                                             | localhost:6030 |
+| group.id                 | 【Require】Consumption group ID, sharing consumption progress with the same consumption group.                                                                                                                                                                                 | None           |
+| deserializer.format      | Consumption data deserialization parsing format. Option:`json` and `csv`.                                                                                                                                                                                                      | json           |
+| consumer.poll.timeout.ms | The timeout in milliseconds to poll data from TDengine.                                                                                                                                                                                                                        | 200            |
