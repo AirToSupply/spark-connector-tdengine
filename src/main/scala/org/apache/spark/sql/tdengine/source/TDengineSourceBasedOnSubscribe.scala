@@ -12,7 +12,7 @@ import org.apache.spark.sql.types.StructType
 
 import java.util.{Collections, Iterator, Objects, Properties}
 import java.util.concurrent.locks.{Lock, ReentrantLock}
-import TDengineSourceBaseOnSubscribe._
+import TDengineSourceBasedOnSubscribe._
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.tdengine.offset.LongOffset
 import org.apache.spark.unsafe.types.UTF8String
@@ -24,7 +24,7 @@ import java.util
 import java.util.concurrent.atomic.AtomicBoolean
 import scala.util.control.NonFatal
 
-class TDengineSourceBaseOnSubscribe(
+class TDengineSourceBasedOnSubscribe(
   sqlContext: SQLContext,
   metadataPath: String,
   schema: Option[StructType],
@@ -64,13 +64,13 @@ class TDengineSourceBaseOnSubscribe(
 
   private var writeAheadLogThread: Thread = _
 
-  private val hadoopConfig: Configuration = TDengineSourceBaseOnSubscribe.hadoopConfig match {
+  private val hadoopConfig: Configuration = TDengineSourceBasedOnSubscribe.hadoopConfig match {
     case null =>
       logInfo("create a new configuration.")
       new Configuration()
     case _ =>
       logInfo("using setted hadoop configuration!")
-      TDengineSourceBaseOnSubscribe.hadoopConfig
+      TDengineSourceBasedOnSubscribe.hadoopConfig
   }
 
   /**
@@ -381,7 +381,7 @@ class TDengineSourceBaseOnSubscribe(
   }
 }
 
-object TDengineSourceBaseOnSubscribe {
+object TDengineSourceBasedOnSubscribe {
 
   var hadoopConfig: Configuration = _
 
