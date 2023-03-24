@@ -16,3 +16,4 @@
 #
 
 org.apache.spark.sql.tdengine.provider.TDengineStreamSourceProvider
+org.apache.spark.sql.tdengine.provider.TDengineStreamSinkProvider
