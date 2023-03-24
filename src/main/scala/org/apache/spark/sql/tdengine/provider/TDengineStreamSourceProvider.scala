@@ -5,7 +5,7 @@ import org.apache.spark.sql.SQLContext
 import org.apache.spark.sql.execution.streaming.Source
 import org.apache.spark.sql.sources.{DataSourceRegister, StreamSourceProvider}
 import org.apache.spark.sql.tdengine.convertor.TDengineRecordToRowConvertor
-import org.apache.spark.sql.tdengine.source.TDengineSourceBaseOnSubscribe
+import org.apache.spark.sql.tdengine.source.TDengineSourceBasedOnSubscribe
 import org.apache.spark.sql.types.StructType
 
 /**
@@ -29,6 +29,6 @@ class TDengineStreamSourceProvider extends DataSourceRegister
       metadataPath: String,
       schema: Option[StructType],
       providerName: String,
-      parameters: Map[String, String]): Source = new TDengineSourceBaseOnSubscribe(sqlContext, metadataPath, schema,
+      parameters: Map[String, String]): Source = new TDengineSourceBasedOnSubscribe(sqlContext, metadataPath, schema,
     parameters: Map[String, String])
 }
