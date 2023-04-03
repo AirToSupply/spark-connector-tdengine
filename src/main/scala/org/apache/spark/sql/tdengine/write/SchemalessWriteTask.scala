@@ -51,3 +51,18 @@ class SchemalessWriteTask(
     }
   }
 }
+
+object SchemalessWriteTask {
+  def apply(
+    partitionId: Int,
+    getConnection: () => Connection,
+    batchSize: Int,
+    protocolType: SchemalessProtocolType,
+    timestampType: SchemalessTimestampType) =
+    new SchemalessWriteTask(
+      partitionId,
+      getConnection,
+      batchSize,
+      protocolType,
+      timestampType)
+}
