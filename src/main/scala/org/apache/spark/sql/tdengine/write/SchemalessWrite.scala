@@ -45,9 +45,8 @@ object SchemalessWrite extends Logging {
     }
 
     repartitionedDF.queryExecution.toRdd.foreachPartition { iter =>
-      val writeTask = new SchemalessWriteTask(
-        TaskContext.get().partitionId(), getConnection, batchSize, protocolType, timestampType)
-      writeTask.execute(iter)
+      SchemalessWriteTask(
+        TaskContext.get().partitionId(), getConnection, batchSize, protocolType, timestampType).execute(iter)
     }
   }
 
