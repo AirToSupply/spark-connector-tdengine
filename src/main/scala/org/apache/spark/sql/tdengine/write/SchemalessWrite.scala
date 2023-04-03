@@ -39,7 +39,7 @@ object SchemalessWrite extends Logging {
       case Some(n) if n <= 0 =>
         throw new IllegalArgumentException(
           s"Invalid value `$n` for parameter `${TDengineOptions.OPTION_PARTITION_NUM}` " +
-            s"in table writing via JDBC. The minimum value is 1.")
+            s"in table writing via TDengine. The minimum value is 1.")
       case Some(n) if n < data.rdd.getNumPartitions => data.coalesce(n)
       case _ => data
     }

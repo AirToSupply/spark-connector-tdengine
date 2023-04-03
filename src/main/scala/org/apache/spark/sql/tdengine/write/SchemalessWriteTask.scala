@@ -33,10 +33,12 @@ class SchemalessWriteTask(
       }
       if (records.nonEmpty) {
         writer write(records.toList, protocolType, timestampType)
+        rowCount = 0
+        records.clear()
       }
     } catch {
       case e: Exception =>
-        logError("Writing data failed, cause by", e)
+        logError(s"Writing data failed for partition [${partitionId}], cause by", e)
     } finally {
       try {
         if (null != connection) {
@@ -44,7 +46,7 @@ class SchemalessWriteTask(
         }
       } catch {
         case e: Exception =>
-          logWarning("Writing data succeeded, but closing failed", e)
+          logWarning(s"Writing data succeeded, but closing failed for partition [${partitionId}]", e)
       }
     }
   }
