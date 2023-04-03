@@ -18,11 +18,10 @@ class TDengineSink(
       log.info(s"Skipping already committed batch $batchId")
     } else {
       outputMode match {
-        case OutputMode.Append =>
+        case _ if outputMode == OutputMode.Append =>
           SchemalessWrite.write(sqlContext.sparkSession, data, parameters)
         case _@mode =>
-          throw new IllegalArgumentException(
-            s"Data source does not support $mode output mode")
+          throw new IllegalArgumentException(s"Data source does not support $mode output mode")
       }
       latestBatchId = batchId
     }
