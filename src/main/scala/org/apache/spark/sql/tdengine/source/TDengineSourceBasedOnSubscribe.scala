@@ -264,7 +264,7 @@ class TDengineSourceBasedOnSubscribe(
             }
           }
         } catch {
-          case ie: InterruptedException =>
+          case _: InterruptedException =>
           case NonFatal(e) => writeAheadLogFatal(e)
         }
       }

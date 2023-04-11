@@ -4,6 +4,7 @@ import com.taosdata.jdbc.SchemalessWriter
 import com.taosdata.jdbc.enums.{SchemalessProtocolType, SchemalessTimestampType}
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.catalyst.InternalRow
+import scala.collection.JavaConverters._
 
 import java.sql.Connection
 
@@ -26,13 +27,13 @@ class SchemalessWriteTask(
         records.append(row.getString(0))
         rowCount += 1
         if (rowCount % batchSize == 0) {
-          writer write(records.toList, protocolType, timestampType)
+          writer.write(records.toList.asJava, protocolType, timestampType)
           rowCount = 0
           records.clear()
         }
       }
       if (records.nonEmpty) {
-        writer write(records.toList, protocolType, timestampType)
+        writer.write(records.toList.asJava, protocolType, timestampType)
         rowCount = 0
         records.clear()
       }

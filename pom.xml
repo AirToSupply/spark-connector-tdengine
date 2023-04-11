@@ -4,7 +4,7 @@
 
     <groupId>tech.odes</groupId>
     <artifactId>spark-connector-tdengine</artifactId>
-    <version>${spark.version}</version>
+    <version>${spark.version}.${reversion}</version>
 
     <name>spark-connector-tdengine</name>
     <url>https://github.com/AirToSupply/spark-connector-tdengine</url>
@@ -27,6 +27,9 @@
     </issueManagement>
 
     <properties>
+        <!-- Project Version -->
+        <reversion>0</reversion>
+
         <!-- Scala Version -->
         <scala.version>2.12.8</scala.version>
         <scala.binary.version>2.12</scala.binary.version>
