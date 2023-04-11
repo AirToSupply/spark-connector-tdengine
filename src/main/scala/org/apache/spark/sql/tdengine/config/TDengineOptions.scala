@@ -8,7 +8,7 @@ object TDengineOptions {
   /**
    * subscribe
    */
-  val OPTION_SUBSCRIBE = "subscribe"
+  val OPTION_SUBSCRIBE = "org/apache/spark/sql/tdengine/example/subscribe"
 
   /**
    * bootstrap servers
