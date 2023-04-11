@@ -34,7 +34,7 @@ This library is only for Scala 2.12.x, so users should replace the proper Scala 
 
 ## Examples
 
-### Streaming Read
+### Streaming Source
 
 SQL Stream can be created with data streams received through TDengine using:
 
@@ -54,7 +54,7 @@ Implementation：
 
 （3）**Exacty-Once semantic** assurance based on the checkpoint of Structured Streaming.
 
-### Streaming Write
+### Streaming Sink
 
 SQL Stream may be also transferred into TDengine using. Currently, only Schemaless write to TDengine, such as [InfluxDB Line Protocol](https://docs.tdengine.com/develop/insert-data/influxdb-line/) and [OpenTSDB Line Protocol](https://docs.tdengine.com/develop/insert-data/opentsdb-telnet/) etc.
 
