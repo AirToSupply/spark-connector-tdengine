@@ -10,7 +10,7 @@ import org.apache.spark.sql.tdengine.config.TDengineOptions
 import org.apache.spark.sql.tdengine.convertor.TDengineRecordToRowConvertor
 import org.apache.spark.sql.types.StructType
 
-import java.util.{Collections, Iterator, Objects, Properties}
+import java.util.{Collections, Objects, Properties}
 import java.util.concurrent.locks.{Lock, ReentrantLock}
 import TDengineSourceBasedOnSubscribe._
 import org.apache.spark.sql.catalyst.InternalRow
@@ -20,7 +20,6 @@ import org.apache.spark.unsafe.types.UTF8String
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.time.Duration
-import java.util
 import java.util.concurrent.atomic.AtomicBoolean
 import scala.util.control.NonFatal
 

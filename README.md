@@ -60,7 +60,14 @@ SQL Stream may be also transferred into TDengine using. Currently, only Schemale
 
 ```scala
 spark.writeStream
-  .format("...")
+  .format(classOf[TDengineStreamSinkProvider].getName)
+  .outputMode("append")
+  .option("host", "localhost")
+  .option("port", "6030")
+  .option("user", "root")
+  .option("password", "taosdata")
+  .option("dbname", "test")
+  .option("checkpointLocation", "/tmp/...")
   .start()
   .awaitTermination()
 ```
